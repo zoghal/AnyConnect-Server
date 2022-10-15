@@ -149,19 +149,19 @@ Installation_dependency(){
         cat /etc/issue |grep 9\..*>/dev/null
         if [[ $? = 0 ]]; then
             apt-get update
-            apt-get install vim net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
+            apt-get install nano net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
         else
             mv /etc/apt/sources.list /etc/apt/sources.list.bak
             wget --no-check-certificate -O "/etc/apt/sources.list" "https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/sources/us.sources.list"
             apt-get update
-            apt-get install vim net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
+            apt-get install nano net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
             rm -rf /etc/apt/sources.list
             mv /etc/apt/sources.list.bak /etc/apt/sources.list
             apt-get update
         fi
     else
         apt-get update
-        apt-get install vim net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
+        apt-get install nano net-tools pkg-config build-essential libgnutls28-dev libwrap0-dev liblz4-dev libseccomp-dev libreadline-dev libnl-nf-3-dev libev-dev gnutls-bin -y
     fi
 }
 Install_ocserv(){
@@ -215,7 +215,7 @@ Set_ocserv(){
     [[ ! -e ${conf} ]] && echo -e "${Error} ocserv config file doesn't exist !" && exit 1
     tcp_port=$(cat ${conf}|grep "tcp-port ="|awk -F ' = ' '{print $NF}')
     udp_port=$(cat ${conf}|grep "udp-port ="|awk -F ' = ' '{print $NF}')
-    vim ${conf}
+    nano ${conf}
     set_tcp_port=$(cat ${conf}|grep "tcp-port ="|awk -F ' = ' '{print $NF}')
     set_udp_port=$(cat ${conf}|grep "udp-port ="|awk -F ' = ' '{print $NF}')
     Del_iptables
