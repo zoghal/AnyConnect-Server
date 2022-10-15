@@ -7,7 +7,7 @@ Linux:
 - centos
 - ubuntu
 
-使用方法
+## Setup
 
 ```bash
 wget -N --no-check-certificate https://raw.githubusercontent.com/zoghal/AnyConnect-Server/main/ocserv-en.sh
